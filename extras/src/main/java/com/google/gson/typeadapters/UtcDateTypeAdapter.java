@@ -31,6 +31,8 @@ import java.util.TimeZone;
 
 public final class UtcDateTypeAdapter extends TypeAdapter<Date> {
   private static final TimeZone UTC_TIME_ZONE = TimeZone.getTimeZone("UTC");
+   private static final int MINUTES_IN_HOUR = 60;
+
 
   @Override
   public void write(JsonWriter out, Date date) throws IOException {
@@ -100,8 +102,8 @@ public final class UtcDateTypeAdapter extends TypeAdapter<Date> {
 
     int offset = tz.getOffset(calendar.getTimeInMillis());
     if (offset != 0) {
-      int hours = Math.abs((offset / (60 * 1000)) / 60);
-      int minutes = Math.abs((offset / (60 * 1000)) % 60);
+      int hours = Math.abs((offset / (60 * 1000)) / MINUTES_IN_HOUR);
+      int minutes = Math.abs((offset / (60 * 1000)) % MINUTES_IN_HOUR);
       formatted.append(offset < 0 ? '-' : '+');
       padInt(formatted, hours, "hh".length());
       formatted.append(':');
