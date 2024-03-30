@@ -733,37 +733,42 @@ public class JsonWriter implements Closeable, Flushable {
         || c == AtomicLong.class;
   }
 
-  private void string(String value) throws IOException {
+ private void string(String value) throws IOException {
     String[] replacements = htmlSafe ? HTML_SAFE_REPLACEMENT_CHARS : REPLACEMENT_CHARS;
     out.write('\"');
+    processString(value, replacements);
+    out.write('\"');
+}
+
+private void processString(String value, String[] replacements) throws IOException {
+    StringBuilder processedValue = new StringBuilder();
     int last = 0;
     int length = value.length();
     for (int i = 0; i < length; i++) {
-      char c = value.charAt(i);
-      String replacement;
-      if (c < 128) {
-        replacement = replacements[c];
-        if (replacement == null) {
-          continue;
+        char c = value.charAt(i);
+        String replacement = getReplacement(c, replacements);
+        if (replacement != null) {
+            processedValue.append(value, last, i);
+            processedValue.append(replacement);
+            last = i + 1;
         }
-      } else if (c == '\u2028') {
-        replacement = "\\u2028";
-      } else if (c == '\u2029') {
-        replacement = "\\u2029";
-      } else {
-        continue;
-      }
-      if (last < i) {
-        out.write(value, last, i - last);
-      }
-      out.write(replacement);
-      last = i + 1;
     }
-    if (last < length) {
-      out.write(value, last, length - last);
+    processedValue.append(value, last, length);
+    out.write(processedValue.toString());
+}
+
+private String getReplacement(char c, String[] replacements) {
+    if (c < 128) {
+        return replacements[c];
+    } else if (c == '\u2028') {
+        return "\\u2028";
+    } else if (c == '\u2029') {
+        return "\\u2029";
+    } else {
+        return null;
     }
-    out.write('\"');
-  }
+}
+
 
   private void newline() throws IOException {
     if (usesEmptyNewlineAndIndent) {
