@@ -61,6 +61,8 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
+import com.google.gson.internal.bind.util.TypeAdapterUtils;
+
 
 /** Type adapters for basic types. */
 public final class TypeAdapters {
