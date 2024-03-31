@@ -159,6 +159,25 @@ public final class RuntimeTypeAdapterFactoryFunctionalTest {
     public RuntimeTypeAdapterFactory<T> registerSubtype(Class<? extends T> type) {
       return registerSubtype(type, type.getSimpleName());
     }
+@Test
+public void testRuntimeTypeAdapterWithValidSubtype() {
+    // Création d'une instance de RuntimeTypeAdapterFactory avec un subtype valide
+    RuntimeTypeAdapterFactory<BillingInstrument> rta =
+        RuntimeTypeAdapterFactory.of(BillingInstrument.class)
+            .registerSubtype(CreditCard.class);
+    Gson gson = new GsonBuilder().registerTypeAdapterFactory(rta).create();
+
+    // Création d'un objet CreditCard à sérialiser
+    CreditCard original = new CreditCard("Jesse", 234);
+
+    // Tentative de sérialisation de l'objet avec un subtype valide
+    String json = gson.toJson(original, BillingInstrument.class);
+
+    // Vérification que la sérialisation a réussi et que le type est correct
+    assertTrue(json.contains("\"type\":\"CreditCard\""));
+    assertTrue(json.contains("\"ownerName\":\"Jesse\""));
+    assertTrue(json.contains("\"cvv\":234"));
+}
 
     @Override
     public <R> TypeAdapter<R> create(Gson gson, TypeToken<R> type) {
