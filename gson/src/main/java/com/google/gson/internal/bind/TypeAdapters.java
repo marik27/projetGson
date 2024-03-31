@@ -252,12 +252,8 @@ public final class TypeAdapters {
 
         @Override
         public void write(JsonWriter out, Number value) throws IOException {
-          if (value == null) {
-            out.nullValue();
-          } else {
-            out.value(value.shortValue());
-          }
-        }
+               TypeAdapterUtils.writeNumber(out, value,true);
+
       };
 
   public static final TypeAdapterFactory SHORT_FACTORY =
@@ -280,12 +276,8 @@ public final class TypeAdapters {
 
         @Override
         public void write(JsonWriter out, Number value) throws IOException {
-          if (value == null) {
-            out.nullValue();
-          } else {
-            out.value(value.intValue());
-          }
-        }
+                  TypeAdapterUtils.writeNumber(out, value,false);
+
       };
   public static final TypeAdapterFactory INTEGER_FACTORY =
       newFactory(int.class, Integer.class, INTEGER);
