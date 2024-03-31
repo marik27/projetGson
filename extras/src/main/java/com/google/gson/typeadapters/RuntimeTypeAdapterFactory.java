@@ -172,16 +172,6 @@ public final class RuntimeTypeAdapterFactory<T> implements TypeAdapterFactory {
     this.maintainType = maintainType;
   }
 
-  /**
-   * Creates a new runtime type adapter using for {@code baseType} using {@code typeFieldName} as
-   * the type field name. Type field names are case sensitive.
-   *
-   * @param maintainType true if the type field should be included in deserialized objects
-   */
-  public static <T> RuntimeTypeAdapterFactory<T> of(
-      Class<T> baseType, String typeFieldName, boolean maintainType) {
-    return new RuntimeTypeAdapterFactory<>(baseType, typeFieldName, maintainType);
-  }
 
   /**
    * Creates a new runtime type adapter using for {@code baseType} using {@code typeFieldName} as
