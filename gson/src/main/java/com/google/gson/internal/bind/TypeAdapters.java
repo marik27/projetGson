@@ -253,6 +253,7 @@ public final class TypeAdapters {
         @Override
         public void write(JsonWriter out, Number value) throws IOException {
                TypeAdapterUtils.writeNumber(out, value,true);
+        }
 
       };
 
@@ -277,6 +278,7 @@ public final class TypeAdapters {
         @Override
         public void write(JsonWriter out, Number value) throws IOException {
                   TypeAdapterUtils.writeNumber(out, value,false);
+        }
 
       };
   public static final TypeAdapterFactory INTEGER_FACTORY =
