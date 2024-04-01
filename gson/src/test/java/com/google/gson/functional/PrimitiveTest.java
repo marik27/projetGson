@@ -88,6 +88,19 @@ public class PrimitiveTest {
   }
 
   @Test
+  public void testShortDeserializationWithinRange() {
+    // Test deserialization of short within range
+    short primitive = gson.fromJson("1", short.class);
+    assertThat(primitive).isEqualTo((short) 1);
+
+    Short boxed = gson.fromJson("1", Short.class);
+    assertThat(boxed).isEqualTo((short) 1);
+
+    short[] shorts = gson.fromJson("[32767, 0, -32768]", short[].class);
+    assertThat(shorts).isEqualTo(new short[] {Short.MAX_VALUE, (short) 0, Short.MIN_VALUE});
+  }
+
+  @Test
   public void testByteDeserializationLossy() {
     JsonSyntaxException e =
         assertThrows(JsonSyntaxException.class, () -> gson.fromJson("-129", byte.class));
