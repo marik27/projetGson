@@ -99,6 +99,7 @@ public class ProtoTypeAdapter implements JsonSerializer<Message>, JsonDeserializ
       setEnumSerialization(enumSerialization);
       setFieldNameSerializationFormat(fromFieldNameFormat, toFieldNameFormat);
     }
+
     @CanIgnoreReturnValue
     public Builder setEnumSerialization(EnumSerialization enumSerialization) {
       this.enumSerialization = requireNonNull(enumSerialization);
@@ -109,7 +110,6 @@ public class ProtoTypeAdapter implements JsonSerializer<Message>, JsonDeserializ
     public EnumSerialization getEnumSerialization() {
       return enumSerialization;
     }
-
 
     /**
      * Sets the field names serialization format. The first parameter defines how to read the format

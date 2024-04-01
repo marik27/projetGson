@@ -30,6 +30,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.internal.LazilyParsedNumber;
 import com.google.gson.internal.NumberLimits;
 import com.google.gson.internal.TroubleshootingGuide;
+import com.google.gson.internal.bind.util.TypeAdapterUtils;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonToken;
@@ -61,8 +62,6 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
-import com.google.gson.internal.bind.util.TypeAdapterUtils;
-
 
 /** Type adapters for basic types. */
 public final class TypeAdapters {
@@ -254,9 +253,8 @@ public final class TypeAdapters {
 
         @Override
         public void write(JsonWriter out, Number value) throws IOException {
-               TypeAdapterUtils.writeNumber(out, value,true);
+          TypeAdapterUtils.writeNumber(out, value, true);
         }
-
       };
 
   public static final TypeAdapterFactory SHORT_FACTORY =
@@ -279,9 +277,8 @@ public final class TypeAdapters {
 
         @Override
         public void write(JsonWriter out, Number value) throws IOException {
-                  TypeAdapterUtils.writeNumber(out, value,false);
+          TypeAdapterUtils.writeNumber(out, value, false);
         }
-
       };
   public static final TypeAdapterFactory INTEGER_FACTORY =
       newFactory(int.class, Integer.class, INTEGER);

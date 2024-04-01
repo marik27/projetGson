@@ -31,8 +31,7 @@ import java.util.TimeZone;
 
 public final class UtcDateTypeAdapter extends TypeAdapter<Date> {
   private static final TimeZone UTC_TIME_ZONE = TimeZone.getTimeZone("UTC");
-   private static final int MINUTES_IN_HOUR = 60;
-
+  private static final int MINUTES_IN_HOUR = 60;
 
   @Override
   public void write(JsonWriter out, Date date) throws IOException {

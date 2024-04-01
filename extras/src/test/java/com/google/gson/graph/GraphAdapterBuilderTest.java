@@ -26,6 +26,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import com.google.gson.typeadapters.GraphAdapterBuilder;
 import org.junit.Test;
 
 public final class GraphAdapterBuilderTest {

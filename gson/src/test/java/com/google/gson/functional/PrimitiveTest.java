@@ -158,9 +158,9 @@ public class PrimitiveTest {
     // Should perform widening conversion
     assertThat(gson.toJson((byte) 1, Integer.class)).isEqualTo("1");
     // Should perform narrowing conversion
-     long longValue = 2147483648L;
-    assertThat(gson.toJson(longValue, Integer.class))
-        .isEqualTo("2147483648");    assertThat(gson.toJson(1.5, Integer.class)).isEqualTo("1");
+    long longValue = 2147483648L;
+    assertThat(gson.toJson(longValue, Integer.class)).isEqualTo("2147483648");
+    assertThat(gson.toJson(1.5, Integer.class)).isEqualTo("1");
   }
 
   @Test
