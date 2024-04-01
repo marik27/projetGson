@@ -140,5 +140,4 @@ public class CollectionsDeserializationBenchmark {
     jr.endObject();
     return bag;
   }
-
 }
