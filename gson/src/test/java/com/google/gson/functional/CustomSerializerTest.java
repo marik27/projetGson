@@ -25,12 +25,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import com.google.gson.common.TestTypes.Base;
-import com.google.gson.common.TestTypes.BaseSerializer;
-import com.google.gson.common.TestTypes.ClassWithBaseArrayField;
-import com.google.gson.common.TestTypes.ClassWithBaseField;
-import com.google.gson.common.TestTypes.Sub;
-import com.google.gson.common.TestTypes.SubSerializer;
+import com.google.gson.functional.TestTypes.Base;
+import com.google.gson.functional.TestTypes.BaseSerializer;
+import com.google.gson.functional.TestTypes.ClassWithBaseArrayField;
+import com.google.gson.functional.TestTypes.ClassWithBaseField;
+import com.google.gson.functional.TestTypes.Sub;
+import com.google.gson.functional.TestTypes.SubSerializer;
 import java.lang.reflect.Type;
 import org.junit.Test;
 

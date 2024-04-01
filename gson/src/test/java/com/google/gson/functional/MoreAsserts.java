@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.gson.common;
+package com.google.gson.functional;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;

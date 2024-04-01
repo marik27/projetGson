@@ -20,7 +20,7 @@ import static com.google.common.truth.Truth.assertThat;
 import static org.junit.Assert.fail;
 
 import com.google.common.testing.EqualsTester;
-import com.google.gson.common.MoreAsserts;
+import com.google.gson.functional.MoreAsserts;
 import java.util.AbstractMap.SimpleEntry;
 import java.util.ArrayDeque;
 import java.util.ArrayList;

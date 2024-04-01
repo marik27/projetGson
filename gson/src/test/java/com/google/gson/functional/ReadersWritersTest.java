@@ -23,7 +23,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonStreamParser;
 import com.google.gson.JsonSyntaxException;
-import com.google.gson.common.TestTypes.BagOfPrimitives;
+import com.google.gson.functional.TestTypes.BagOfPrimitives;
 import com.google.gson.reflect.TypeToken;
 import java.io.CharArrayReader;
 import java.io.CharArrayWriter;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.gson.common;
+package com.google.gson.functional;
 
 import com.google.common.base.Objects;
 import com.google.gson.JsonDeserializationContext;

@@ -20,7 +20,7 @@ import static com.google.common.truth.Truth.assertThat;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.common.TestTypes.BagOfPrimitives;
+import com.google.gson.functional.TestTypes.BagOfPrimitives;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Before;

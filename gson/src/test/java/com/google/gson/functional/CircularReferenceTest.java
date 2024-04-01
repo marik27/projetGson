@@ -24,7 +24,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import com.google.gson.common.TestTypes.ClassOverridingEquals;
+import com.google.gson.functional.TestTypes.ClassOverridingEquals;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collection;

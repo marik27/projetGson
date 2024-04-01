@@ -23,7 +23,7 @@ import static org.junit.Assert.fail;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonNull;
 import com.google.gson.Strictness;
-import com.google.gson.common.MoreAsserts;
+import com.google.gson.functional.MoreAsserts;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.io.Writer;

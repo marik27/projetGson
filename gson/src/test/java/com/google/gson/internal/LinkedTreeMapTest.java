@@ -19,7 +19,7 @@ package com.google.gson.internal;
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.Assert.fail;
 
-import com.google.gson.common.MoreAsserts;
+import com.google.gson.functional.MoreAsserts;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

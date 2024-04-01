@@ -19,7 +19,7 @@ package com.google.gson;
 import static com.google.common.truth.Truth.assertThat;
 import static org.junit.Assert.assertThrows;
 
-import com.google.gson.common.MoreAsserts;
+import com.google.gson.functional.MoreAsserts;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;

@@ -20,7 +20,7 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth.assertWithMessage;
 import static org.junit.Assert.fail;
 
-import com.google.gson.common.MoreAsserts;
+import com.google.gson.functional.MoreAsserts;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import org.junit.Test;
