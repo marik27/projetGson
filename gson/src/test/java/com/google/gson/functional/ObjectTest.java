@@ -141,6 +141,12 @@ public class ObjectTest {
     ClassWithTransientFields<?> target = gson.fromJson(json, ClassWithTransientFields.class);
     assertThat(target.getExpectedJson()).isEqualTo(json);
   }
+@Test
+public void testArrayFieldSerialization() {
+    String[] array = {"value1", "value2", "value3"};
+    String json = gson.toJson(array);
+    assertThat(json).isEqualTo("[\"value1\",\"value2\",\"value3\"]");
+}
 
   @Test
   public void testClassWithTransientFieldsDeserializationTransientFieldsPassedInJsonAreIgnored() {
