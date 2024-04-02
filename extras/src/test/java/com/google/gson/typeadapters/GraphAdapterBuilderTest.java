@@ -22,7 +22,6 @@ import static org.junit.Assert.assertSame;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.typeadapters.GraphAdapterBuilder;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
