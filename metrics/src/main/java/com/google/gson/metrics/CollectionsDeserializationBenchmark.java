@@ -34,7 +34,7 @@ import java.util.List;
 public class CollectionsDeserializationBenchmark {
 
   private static final TypeToken<List<BagOfPrimitives>> LIST_TYPE_TOKEN =
-      new TypeToken<List<BagOfPrimitives>>() {};
+          new TypeToken<List<BagOfPrimitives>>() {};
   private static final Type LIST_TYPE = LIST_TYPE_TOKEN.getType();
   private Gson gson;
   private String json;
@@ -108,36 +108,31 @@ public class CollectionsDeserializationBenchmark {
       jr.beginArray();
       List<BagOfPrimitives> bags = new ArrayList<>();
       while (jr.hasNext()) {
-        BagOfPrimitives bag = readJsonObject(jr);
+        jr.beginObject();
+        BagOfPrimitives bag = new BagOfPrimitives();
+        while (jr.hasNext()) {
+          String name = jr.nextName();
+          for (Field field : BagOfPrimitives.class.getDeclaredFields()) {
+            if (field.getName().equals(name)) {
+              Class<?> fieldType = field.getType();
+              if (fieldType.equals(long.class)) {
+                field.setLong(bag, jr.nextLong());
+              } else if (fieldType.equals(int.class)) {
+                field.setInt(bag, jr.nextInt());
+              } else if (fieldType.equals(boolean.class)) {
+                field.setBoolean(bag, jr.nextBoolean());
+              } else if (fieldType.equals(String.class)) {
+                field.set(bag, jr.nextString());
+              } else {
+                throw new RuntimeException("Unexpected: type: " + fieldType + ", name: " + name);
+              }
+            }
+          }
+        }
+        jr.endObject();
         bags.add(bag);
       }
       jr.endArray();
     }
-  }
-
-  private BagOfPrimitives readJsonObject(JsonReader jr) throws Exception {
-    jr.beginObject();
-    BagOfPrimitives bag = new BagOfPrimitives();
-    while (jr.hasNext()) {
-      String name = jr.nextName();
-      for (Field field : BagOfPrimitives.class.getDeclaredFields()) {
-        if (field.getName().equals(name)) {
-          Class<?> fieldType = field.getType();
-          if (fieldType.equals(long.class)) {
-            field.setLong(bag, jr.nextLong());
-          } else if (fieldType.equals(int.class)) {
-            field.setInt(bag, jr.nextInt());
-          } else if (fieldType.equals(boolean.class)) {
-            field.setBoolean(bag, jr.nextBoolean());
-          } else if (fieldType.equals(String.class)) {
-            field.set(bag, jr.nextString());
-          } else {
-            throw new RuntimeException("Unexpected: type: " + fieldType + ", name: " + name);
-          }
-        }
-      }
-    }
-    jr.endObject();
-    return bag;
   }
 }
